@@ -2,6 +2,7 @@ import random
 
 from EdgeGraph import EdgeGraph
 from MatrixImage import MatrixImage
+from MazeEnvironment import MazeEnvironment
 from MazeMonitor import MazeMonitor
 from utils import initialize_grid_graph, generate_maze
 
@@ -105,6 +106,31 @@ def test_maze_monitor():
     plt.show()
 
 
+def test_maze_env():
+    fig = plt.gca()
+
+    x_axis = fig.axes.get_xaxis()
+    x_axis.set_visible(False)
+
+    y_axis = fig.axes.get_yaxis()
+    y_axis.set_visible(False)
+
+    env = MazeEnvironment(10, 10)
+    state = env.state
+
+    plt.imshow(state)
+    plt.pause(0.01)
+
+    for _ in range(100):
+        action = random.randint(0, 4)
+        print(action)
+        reward, state, done, _ = env.step(action)
+        print(reward)
+        plt.imshow(state)
+        plt.pause(0.001)
+    plt.show()
+
+
 if __name__ == '__main__':
     random.seed(100)
     # graph_basic_test()
@@ -112,4 +138,5 @@ if __name__ == '__main__':
     # test_maze_generator()
     # test_matrix_image()
     # test_matrix_image_tools()
-    test_maze_monitor()
+    # test_maze_monitor()
+    test_maze_env()
