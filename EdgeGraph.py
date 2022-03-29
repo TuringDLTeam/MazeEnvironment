@@ -1,6 +1,6 @@
 class Graph:
-    def __init__(self, nodes=0):
-        self.__count_of_nodes = nodes
+    def __init__(self, nodes=1):
+        self.__count_of_nodes = nodes - 1
         self.__edges = 0
         self.__edge_dict = {}
 
