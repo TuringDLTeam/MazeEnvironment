@@ -48,8 +48,42 @@ def test_matrix_image():
     plt.show()
 
 
+def test_matrix_image_tools():
+    image = MatrixImage(5, 5, background=.5)
+
+    image.fill_upper_edge(1, 1, (1, 0, 1))
+    image.fill_lower_edge(1, 1, (1, 1, 0))
+    image.fill_upper_edge(1, 2, (1, 0, 1))
+
+    image.fill_left_edge(2, 1, (0, 1, 1))
+    image.fill_right_edge(2, 1, (0, 0, 1))
+
+    image.fill_upper_edge(3, 3, .8)
+    image.fill_lower_edge(3, 3, .8)
+    image.fill_right_edge(3, 3, .8)
+    image.fill_left_edge(3, 3, .8)
+
+    image.fill_inside(3, 3, (1, .5, .6))
+
+    image.fill(2, 3, .4)
+    image.fill(3, 2, .4)
+    image.fill(3, 4, .4)
+    image.fill(4, 3, .4)
+
+    fig = plt.gca()
+
+    x_axis = fig.axes.get_xaxis()
+    x_axis.set_visible(False)
+
+    y_axis = fig.axes.get_yaxis()
+    y_axis.set_visible(False)
+    plt.imshow(image.image)
+    plt.show()
+
+
 if __name__ == '__main__':
     # graph_basic_test()
     # test_grid_graph()
     # test_maze_generator()
-    test_matrix_image()
+    # test_matrix_image()
+    test_matrix_image_tools()
