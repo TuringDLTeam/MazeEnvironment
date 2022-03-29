@@ -1,4 +1,4 @@
-class Graph:
+class EdgeGraph:
     def __init__(self, nodes=1):
         self.__count_of_nodes = nodes - 1
         self.__edges = 0
