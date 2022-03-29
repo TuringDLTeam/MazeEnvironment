@@ -26,19 +26,29 @@ class MazeEnvironment(Environment):
 
         self.__transition_graph = VertexGraph.from_edge_graph(paths)
 
+    def __get_node_index(self, x, y):
+        return y * self.__width + x
+
     def __get_new_position(self, action):
-        x, y = self.__position
+        current_x, current_y = self.__position
+        current_index = self.__get_node_index(*self.__position)
+        new_x, new_y = current_x, current_y
 
         if action == 0:  # Up
-            y = max(0, y - 1)
+            new_y = max(0, current_y - 1)
         elif action == 1:  # Down
-            y = min(self.__width - 1, y + 1)
+            new_y = min(self.__width - 1, current_y + 1)
         elif action == 2:  # Right
-            x = min(self.__height - 1, x + 1)
+            new_x = min(self.__height - 1, current_x + 1)
         elif action == 3:  # Left
-            x = max(0, x - 1)
+            new_x = max(0, current_x - 1)
 
-        return x, y
+        new_index = self.__get_node_index(new_x, new_y)
+
+        if self.__transition_graph.are_adjacent(current_index, new_index):
+            return new_x, new_y
+        
+        return current_x, current_y
 
     def step(self, action):
         new_pos = self.__get_new_position(action)
