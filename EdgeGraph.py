@@ -17,5 +17,9 @@ class Graph:
     def nodes(self):
         return self.__count_of_nodes
 
+    @property
+    def edges(self):
+        return self.__edge_dict
+
     def __str__(self):
         return f'Graph(\n\t#Nodes: {self.__count_of_nodes},\t#Edges: {self.__edges}\n)'
