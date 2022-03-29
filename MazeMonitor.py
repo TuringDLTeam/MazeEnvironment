@@ -6,12 +6,12 @@ class MazeMonitor:
     WALL = .2
     AGENT = (.9, .5, .2)
 
-    def __init__(self, width, height, paths):
+    def __init__(self, width, height, walls):
         self.__image = MatrixImage(width, height, background=MazeMonitor.BACKGROUND, edge_thickness=1)
         self.__width = width
         self.__height = height
 
-        self.__add_walls(paths)
+        self.__add_walls(walls)
         self.__add_borders()
 
         self.__agent_pos = (0, 0)
