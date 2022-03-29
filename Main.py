@@ -21,6 +21,8 @@ def test_grid_graph():
     for number, edge in graph.edges.items():
         print(number, edge)
 
+    print(graph.edge_list)
+
 
 if __name__ == '__main__':
     # graph_basic_test()

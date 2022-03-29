@@ -22,5 +22,9 @@ class EdgeGraph:
     def edges(self):
         return self.__edge_dict
 
+    @property
+    def edge_list(self):
+        return [item for _, item in self.__edge_dict.items()]
+
     def __str__(self):
         return f'Graph(\n\t#Nodes: {self.__count_of_nodes + 1},\t#Edges: {self.__edges}\n)'
