@@ -1,5 +1,5 @@
 from EdgeGraph import EdgeGraph
-from utils import initialize_grid_graph
+from utils import initialize_grid_graph, generate_maze
 
 
 def main():
@@ -24,6 +24,11 @@ def test_grid_graph():
     print(graph.edge_list)
 
 
+def test_maze_generator():
+    print(generate_maze(10, 10))
+
+
 if __name__ == '__main__':
     # graph_basic_test()
-    test_grid_graph()
+    # test_grid_graph()
+    test_maze_generator()
