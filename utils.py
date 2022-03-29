@@ -49,12 +49,15 @@ def merge_sets(set_list, first, second):
 
 def get_final_graph(edges, removed_edges):
     answer = []
+    complement = []
 
     for index, edge in enumerate(edges):
         if index in removed_edges:
             answer.append(edge)
+        else:
+            complement.append(edge)
 
-    return answer
+    return answer, complement
 
 
 def generate_maze(width, height):
