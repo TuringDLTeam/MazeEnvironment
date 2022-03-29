@@ -21,6 +21,9 @@ class VertexGraph:
         self.__graph[second].append(first)
         self.__edges += 1
 
+    def are_adjacent(self, first, second):
+        return first in self.__graph[second]
+
     def show(self):
         for index, neighbors in self.__graph.items():
             print(f'{index}: {neighbors}')
