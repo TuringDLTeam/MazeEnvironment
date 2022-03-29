@@ -9,6 +9,7 @@ class EdgeGraph:
 
     def add_edge(self, head, tail):
         self.__edge_dict[self.__edges] = (head, tail)
+        self.__edges += 1
 
     def remove_edge(self, edge):
         del self.__edges[edge]
@@ -22,4 +23,4 @@ class EdgeGraph:
         return self.__edge_dict
 
     def __str__(self):
-        return f'Graph(\n\t#Nodes: {self.__count_of_nodes},\t#Edges: {self.__edges}\n)'
+        return f'Graph(\n\t#Nodes: {self.__count_of_nodes + 1},\t#Edges: {self.__edges}\n)'
