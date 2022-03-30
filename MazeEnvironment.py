@@ -23,8 +23,10 @@ class MazeEnvironment(Environment):
     def reset(self):
         paths, walls = generate_maze(self.__width, self.__height)
         self.__monitor = MazeMonitor(self.__width, self.__height, walls)
+        self.__position = (0, 0)
+        self.__monitor.move_agent(self.__position)
 
-        self.__transition_graph = VertexGraph.from_edge_graph(paths)
+        self.__transition_graph = VertexGraph.from_edge_graph(paths, self.__width * self.__height)
 
     def __get_node_index(self, x, y):
         return y * self.__width + x

@@ -116,6 +116,7 @@ def test_maze_env():
     y_axis.set_visible(False)
 
     env = MazeEnvironment(10, 10)
+    env.reset()
     state = env.state
 
     plt.imshow(state)
